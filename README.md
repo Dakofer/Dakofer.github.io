@@ -21,3 +21,14 @@ Catálogo web dinámico que obtiene la información de los productos desde un ar
 - JavaScript (ES6+)
 - XML (como fuente de datos)
 
+---
+
+## ⚠️ Aviso legal
+Este software es propiedad de [Nombre de tu novia o negocio]. 
+Todos los derechos reservados.
+
+**No está permitido**:
+- Copiar, modificar o distribuir el código sin autorización expresa.
+- Usar el código para fines comerciales sin permiso.
+
+Para consultas sobre licencias, contacta a: hernandezamezolaf@gmail.com.
