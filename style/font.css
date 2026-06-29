@@ -1,0 +1,33 @@
+
+img{
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px;
+   } 
+
+.contenedor-recorte {
+  width: 300px; /* Tamaño final deseado */
+  height: 350px; /* Tamaño final deseado */
+}
+
+.contenedor-recorte img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover; /* Recorta la imagen para llenar el contenedor manteniendo su proporción */
+  object-position: center; /* Centra la parte visible de la imagen */
+}
+
+.color-cart{
+    background-color:#694E9F
+}
+
+.color-card{
+    background-color:#131524
+}
+
+.color-navbar{
+    background-color: #0E1116;
+}
+
+.color-navbar-text{
+    color: #A69DBC;
+}

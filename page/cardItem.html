@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="/style/font.css" rel="stylesheet" type="text/css">
+    <title>cardItem demo</title>
+</head>
+<body>
+
+    <div id="zona-catalogo" class="oferta grid grid-cols-[350px_minmax(900px,_1fr)_100px]"></div>
+    
+    <script type="module">
+    // Si guardaste la clase en catalogManager.js
+    import CatalogManager from '/javascript/app.js';
+
+    // 1. Instanciamos la clase
+    const miCatalogo = new CatalogManager();
+
+    // 2. Cargamos el XML (ajusta la ruta a tu archivo)
+    const xmlUrl = '/xml/productos.xml'; // O la URL completa de internet
+    await miCatalogo.loadXML(xmlUrl);
+
+    // 3. Renderizamos productos INDIVIDUALES en zonas específicas
+    const zonaDestacado = document.getElementById('zona-destacado');
+    miCatalogo.renderProduct('p001', zonaDestacado); // Solo la silla gamer
+
+    const zonaOferta = document.getElementById('zona-oferta');
+    miCatalogo.renderProduct('p002', zonaOferta); // Solo el mouse
+
+    // 4. Renderizamos TODOS en el catálogo general
+    const zonaCatalogo = document.getElementById('zona-catalogo');
+    miCatalogo.renderAll(zonaCatalogo);</script>
+</body>
+</html>
