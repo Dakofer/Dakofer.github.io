@@ -103,35 +103,63 @@
         </p>
       </div>
 
-        <!--- todos los productos -->
-        <div id="zona-catalogo" class="oferta grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        
+        <!-- Sección de catálogo general -->
+        <div id="catalogo-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+        <!-- Sección de favoritos -->
+        <div id="favoritos-container"></div>
     </div>
   </section>
 
   <footer class="bg-[#0b0b1a] text-gray-400 py-6 text-center text-sm border-t border-gray-800">
     <p>&copy; 2025 AoShop. Todos los derechos reservados.</p>
   </footer>
-    <script type="module">
-    // Si guardaste la clase en catalogManager.js
-    import CatalogManager from '/javascript/app.js';
 
-    // 1. Instanciamos la clase
-    const miCatalogo = new CatalogManager();
+  <script src="/javascript/app.js"></script>
 
-    // 2. Cargamos el XML (ajusta la ruta a tu archivo)
-    const xmlUrl = '/xml/productos.xml'; // O la URL completa de internet
-    await miCatalogo.loadXML(xmlUrl);
+<script type="module">
+  import CatalogManager from './javascript/app.js';
 
-    // 3. Renderizamos productos INDIVIDUALES en zonas específicas
-    const zonaDestacado = document.getElementById('zona-destacado');
-    miCatalogo.renderProduct('p001', zonaDestacado); // Solo la silla gamer
+  // Esperar a que el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const miCatalogo = new CatalogManager();
 
-    const zonaOferta = document.getElementById('zona-oferta');
-    miCatalogo.renderProduct('p002', zonaOferta); // Solo el mouse
+      // Cargar JSON con ruta ABSOLUTA desde la raíz
+      const jsonUrl = '/productos.json'; // O './productos.json' si está en la misma carpeta
 
-    // 4. Renderizamos TODOS en el catálogo general
-    const zonaCatalogo = document.getElementById('zona-catalogo');
-    miCatalogo.renderAll(zonaCatalogo);</script>
+      await miCatalogo.loadJSON(jsonUrl);
+
+      // Verificar que los productos se cargaron
+      if (miCatalogo.products.length === 0) {
+        document.getElementById('catalogo-container').innerHTML = 
+          '<p class="text-red-500">⚠️ No se encontraron productos.</p>';
+        return;
+      }
+
+      // Renderizar en el contenedor
+      const catalogoContainer = document.getElementById('catalogo-container');
+      if (catalogoContainer) {
+        miCatalogo.renderAll(catalogoContainer);
+        console.log(`✅ ${miCatalogo.products.length} productos mostrados.`);
+      } else {
+        console.error('❌ Contenedor #catalogo-container no encontrado.');
+      }
+
+      // (Opcional) Renderizar favoritos
+      const favContainer = document.getElementById('favoritos-container');
+      if (favContainer) {
+        miCatalogo.renderFavorites(favContainer);
+      }
+
+    } catch (error) {
+      console.error('❌ Error al inicializar el catálogo:', error);
+      document.getElementById('catalogo-container').innerHTML = 
+        '<p class="text-red-500">⚠️ Error al cargar los productos. Revisa la consola.</p>';
+    }
+  });
+</script>
 </body>
 </html>
 

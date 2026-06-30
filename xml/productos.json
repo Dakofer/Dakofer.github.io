@@ -1,0 +1,18 @@
+[
+   {
+    "id":"p001", 
+    "nombre": "Llaveros de jujutsu kaisen",
+    "precio": 120.00,
+    "descripcion": "☆Llavero de acrílico ☆Con efecto holográfico cristal roto ☆ Llavero con diseño original inspirado en Jujutsu Kaisen ☆ Tamaño: 7cm",
+    "imagen":"/img/llavero_jujutsu.jpg",
+    "url":"https://www.facebook.com/marketplace/item/740579655784763?ref=marketplace_profile&referral_code=undefined"
+   },
+   {
+    "id":"p002",
+    "nombre": "Llaveros de bakugo",
+    "precio": 120.00,
+    "descripcion": "☆Llavero de acrílico ☆Con efecto holográfico cristal roto ☆ Llavero con diseño original inspirado en Bakugo Katsuki ☆ Tamaño: 7cm",
+    "imagen":"/img/llavero_bakugo.jpg",
+    "url":"https://www.facebook.com/marketplace/item/1034549752379644/?ref=marketplace_profile&referral_code=undefined"
+   }
+]
