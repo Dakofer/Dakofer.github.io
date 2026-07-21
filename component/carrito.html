@@ -1,0 +1,92 @@
+
+    <div id="cartModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay hidden">
+        <!-- Contenedor del modal (con altura máxima y flex) -->
+        <div class="card rounded-2xl shadow-2xl w-full max-w-4xl modal-container relative">
+
+            <!-- Botón cerrar -->
+            <button id="closeModalBtn" class="absolute top-4 right-5 text-gray-400 hover:text-gray-500 text-2xl focus:outline-none transition z-10">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Encabezado fijo -->
+            <div class="px-6 py-5 border-b border-gray-200 flex-shrink-0">
+                <h1 class="text-2xl font-bold text flex items-center gap-2">
+                    <i class="fas fa-shopping-cart text-indigo-500"></i>
+                    Shopping Cart
+                </h1>
+            </div>
+
+            <!-- CUERPO DEL MODAL CON SCROLL -->
+            <div class="modal-scroll px-6 py-4 flex-1">
+
+                <!-- Lista de productos -->
+                <div class="divide-y divide-gray-800">
+
+                    <!-- iMac -->
+                    <div class="product-row flex items-center justify-between py-4">
+                        <div class="flex-1">
+                            <span class="font-medium text">Apple iMac 27"</span>
+                            <span class="ml-2 text-sm text-gray-300">- 1</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <span class=" price">$1,499</span>
+                            <a href="#" class="remove-link text-sm"><i class="fas fa-trash-alt mr-1"></i>Remove</a>
+                        </div>
+                    </div>
+
+                <!-- Cupón -->
+                <div class="mt-4 pt-4 border-t border-gray-700 color-cupon -mx-6 px-6 py-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                        <label for="coupon" class="text-sm font-medium text">Add coupon</label>
+                        <div class="flex flex-1 w-full sm:w-auto gap-2">
+                            <input type="text" id="coupon" placeholder="Enter coupon code"
+                            class="flex-1 px-4 py-2 border border-gray-300 rounded-full text-sm focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 outline-none" />
+                            <button class="btn hover:btn:hover text-white text-sm font-medium px-5 py-2 rounded-full transition">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen del pedido -->
+                <div class="mt-4 pt-4 border-t border-gray-200 body -mx-6 px-6 py-5">
+                    <h2 class="text-lg font-semibold text mb-4">Order summary</h2>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text">Original price:</span>
+                            <span class="font-medium text">$10,691.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text">Savings:</span>
+                            <span class="font-medium text-green-600">-$299.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text">Store Pickup:</span>
+                            <span class="font-medium text">$99</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text">Tax:</span>
+                            <span class="font-medium text">$799</span>
+                        </div>
+                        <div class="border-t border-gray-300 my-3"></div>
+                        <div class="flex justify-between text-base font-bold">
+                            <span class="text">Total</span>
+                            <span class="text-indigo-300">$11,888.00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /modal-scroll -->
+
+            <!-- Botones de acción (siempre visibles abajo) -->
+            <div class="px-6 py-5 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white rounded-b-2xl flex-shrink-0">
+                <button class="btn-secondary w-full sm:w-auto order-2 sm:order-1">
+                    <i class="fas fa-arrow-left mr-2"></i>Continue Shopping
+                </button>
+                <button class="btn-primary w-full sm:w-auto order-1 sm:order-2">
+                    Proceed to Checkout <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>

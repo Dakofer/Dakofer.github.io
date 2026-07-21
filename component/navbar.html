@@ -1,0 +1,62 @@
+
+     <nav class="color-navbar fixed w-full z-20 top-0 start- border-b-0 dark:border-gray-200  border-b border-default">
+        <div class="max-w-screen-xl flex flex-wrap items-center mx-auto p-4">
+            
+            <!-- 1. LOGO (izquierda fija) -->
+            <div class="flex items-center space-x-3 rtl:space-x-reverse  flex-shrink-0">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="AoShop Logo" />
+            <span class="self-center color-navbar-text text-xl text-heading font-semibold whitespace-nowrap">AoShop</span>
+            </div>
+            <!-- Botón hamburguesa (solo visible en móvil) -->
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-white text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+            </button>
+            <!-- 2. MENÚ CENTRAL (oculto en móvil, visible en escritorio) -->
+            <div class="hidden md:flex flex-1 justify-center " id="navbar-default">
+            <ul class="font-medium  flex flex-col overflow-x-hidden md:flex-row md:space-x-8 rtl:space-x-reverse">
+                <li>
+                <a href="/index.html" class="block py-2 px-3 text-white color-navbar-text rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a>
+                </li>
+                <li>
+                <button id="dropdownNvbarButton" data-dropdown-toggle="dropdownNavbar" class="block py-2 px-3 text-heading text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">
+                    Productos 
+                    <svg class="w-4 h-4 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/></svg>
+                </button>
+                <!-- Dropdown menu -->
+                <div id="dropdownNavbar" class="z-10 hidden color-navbar border-b border-default border-b-0 border border-default-medium rounded-base shadow-lg w-44">
+                    <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownNvbarButton">
+                        <li>
+                        <a href="#" class="inline-flex items-center w-full p-2 text-white hover:bg-neutral-tertiary-medium hover:text-heading rounded">Llaveros</a>
+                        </li>
+                        <li>
+                        <a href="#" class="inline-flex items-center w-full p-2 text-white hover:bg-neutral-tertiary-medium hover:text-heading rounded">Camisetas</a>
+                        </li>
+                        <li>
+                        <a href="#" class="inline-flex items-center w-full p-2 text-white hover:bg-neutral-tertiary-medium hover:text-heading rounded">Sticker</a>
+                        </li>
+                    </ul>
+                </div>
+                </li>
+                <li>
+                <a href="#" class="block py-2 px-3 text-heading text-white rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">Contact</a>
+                </li>
+            </ul>
+            </div>
+
+
+            <div class="flex items-center space-x-4 flex-shrink-0 text-white">
+  
+
+                <!-- Carrito con contador -->
+                <div class="relative">
+                    <button class="text-body hover:text-heading" id="openModalBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"/> <circle cx="20" cy="21" r="1"/> <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </button>
+                    <!--<span class="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">8</span>-->
+            </div>
+
+        </div>
+    </nav>

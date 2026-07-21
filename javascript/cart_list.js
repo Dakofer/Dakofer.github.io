@@ -1,10 +1,7 @@
-import { add, remove, isFavorite ,getAll} from '/javascript/favorite.js';
 class CatalogManager {
-  
   constructor() {
     this.products = [];
     this.isLoaded = false;
-    
   }
 
   // Cargar productos desde JSON
@@ -13,7 +10,7 @@ class CatalogManager {
       const response = await fetch(url);
       if (!response.ok) throw new Error('Error al descargar el JSON');
       const data = await response.json();
-
+      
       // Si el JSON es un objeto con claves, lo convertimos a arreglo
       const productsArray = Array.isArray(data) ? data : Object.values(data);
 
@@ -58,79 +55,82 @@ class CatalogManager {
       return;
     }
 
-    // ----- CONTENEDOR PRINCIPAL (card) -----
-    const card = document.createElement('div');
-    card.className = ' bg-neutral-primary-soft color-card block max-w-sm border border-default rounded-lg shadow-xs';
+    // ----- CONTENEDOR PRINCIPAL DE PRODUCTO (card) -----
+    const div = document.createElement('div');
+    div.className = 'product-row flex items-center justify-between py-4';
+    
+    const div_2 = document.createElement('div')
+    div_2.className = 'flex-1'
+    // nombre del producto
+    const producto_nombre = document.createElement('spam')
+    producto_nombre.class = 'font-medium text'
+    producto_nombre.textContent = product.name;
+
+      // ----- BOTÓN DE FAVORITO (corazón) -----
+  const favBtn = document.createElement('button');
+  favBtn.type = 'button';
+  favBtn.className = 'absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md transition-colors duration-200 focus:outline-none z-10';
+  // Icono (inicialmente lleno, puedes cambiarlo)
+  const favIcon = document.createElement('i');
+  favIcon.className = 'fas fa-heart text-red-500 text-lg'; // 'fas' = lleno, 'far' = vacío
+  favBtn.appendChild(favIcon);
+
+  // Evento toggle de favorito
+  favBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Evita que se abra el enlace
+    const icon = favBtn.querySelector('i');
+    if (icon.classList.contains('fas')) {
+      icon.classList.remove('fas');
+      icon.classList.add('far');
+      icon.style.color = '#9ca3af'; // Gris
+    } else {
+      icon.classList.remove('far');
+      icon.classList.add('fas');
+      icon.style.color = '#ef4444'; // Rojo
+    }
+    // Aquí puedes guardar el estado en localStorage, etc.
+    console.log(`Favorito toggled para: ${product.name}`);
+  });
+
+  imageContainer.appendChild(favBtn);
+  card.appendChild(imageContainer);
+    //cantidad de producto
+    const producto_precio = document.createElement('spam')
+    producto_precio.class = 'ml-2 text-sm text-gray-300'
+    producto_precio.textContent = product.name;
+
+    //precio del producto
+    const div_3 = document.createElement('div')
+    div_3.className = 'flex items-center gap-6'
+
+    const producto_nombre = document.createElement('spam')
+    producto_nombre.class = 'price'
+    producto_nombre.textContent = product.precio;
+
+    //boton de remover de carrito
+    const btn_remove = document.createElement('a')
+    btn_remove.class = 'remove-link text-sm'
+
+    const btn_remove_i = document.createElement('i')
+    btn_remove_i = 'fas fa-trash-alt mr-1'
+    btn_remove.textContent = product.name;
 
     // ----- IMAGEN (con enlace) -----
-    const imageWrapper = document.createElement('div');
-    imageWrapper.className = 'relative'; // ← IMPORTANTE
-
     const linkImg = document.createElement('a');
-    linkImg.href = `page/Producto.html?id=${product.id}`;
+    linkImg.href = product.url;
     const img = document.createElement('img');
-    img.className = "contenedor-recorte"
     img.src = product.image;
     img.alt = product.name;
     linkImg.appendChild(img);
-    imageWrapper.appendChild(linkImg);
-
-    const favBtn = document.createElement('button');
-    favBtn.type = 'button';
-    favBtn.className = 'absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-1.5 shadow-md transition-colors duration-200 focus:outline-none z-10';
-
-    // Ícono (inicialmente vacío)
-    const favIcon = document.createElement('i');
-    favIcon.className = 'far fa-heart text-gray-500 text-lg'; // 'far' = vacío
-    getAll().forEach(element => {
-      if (element==product.id){
-        if (isFavorite && favIcon.classList.contains('far')){
-          favIcon.classList.remove('far');
-          favIcon.classList.add('fas');
-          favIcon.style.color = '#ef4444'; // Rojo (lleno)
-        }
-      }
-    });
-    favBtn.appendChild(favIcon);
-
-    // Evento toggle
-    favBtn.addEventListener('click', (e) => {
-      
-      e.stopPropagation(); // Evita que el clic abra el enlace
-      const icon = favBtn.querySelector('i');
-      if (icon.classList.contains('far')) {
-        icon.classList.remove('far');
-        icon.classList.add('fas');
-        icon.style.color = '#ef4444'; // Rojo (lleno)
-        add(product.id)
-        console.log(this.myFavorite)
-      } else {
-        icon.classList.remove('fas');
-        icon.classList.add('far');
-        icon.style.color = '#9ca3af'; // Gris (vacío)
-        remove(product.id)
-        console.log(this.myFavorite)
-      }
-      console.log(`Favorito toggled para: ${product.name}`);
-      // Aquí puedes guardar en localStorage
-    });
-
-
-    imageWrapper.appendChild(favBtn);
-    card.appendChild(imageWrapper); // Agregamos el wrapper con imagen + corazón
-
+    card.appendChild(linkImg);
 
     // ----- GRID INTERIOR (3 columnas) -----
     const grid = document.createElement('div');
     grid.className = 'grid grid-cols-3 gap-4';
 
-    // ----- COLUMNA IZQUIERDA (nombre y precio) -----
-    const colLeft = document.createElement('div');
-    colLeft.className = 'p-3 col-span-2 text-center';
-
     // Nombre (con enlace)
     const linkName = document.createElement('a');
-    linkName.href = `page/Producto.html?id=${product.id}`;
+    linkName.href = product.url;
     const nameP = document.createElement('p');
     nameP.className = 'mt-4 tracking-tight text-white text-heading';
     nameP.textContent = product.name; // textContent escapa
@@ -139,7 +139,7 @@ class CatalogManager {
 
     // Precio (con enlace)
     const linkPrice = document.createElement('a');
-    linkPrice.href = `page/Producto.html?id=${product.id}`;
+    linkPrice.href = product.url;
     linkPrice.className = 'inline-flex text-white text-sm py-2.5';
     linkPrice.textContent = `$${product.price}`;
     colLeft.appendChild(linkPrice);
@@ -178,7 +178,7 @@ class CatalogManager {
     srOnly.textContent = 'Añadir al carrito';
     btnCart.appendChild(srOnly);
 
-    // EVENTO DE CLIC para redirigir a product.url
+    // ⭐ EVENTO DE CLIC para redirigir a product.url
     btnCart.addEventListener('click', (e) => {
       e.preventDefault();
       if (product.url) {
@@ -211,8 +211,8 @@ class CatalogManager {
   // Renderizar SOLO favoritos (necesita FavoritesManager)
   renderFavorites(containerElement) {
     if (!containerElement) return;
-    const favoriteIds = getAll();
-    console.log(getAll())
+    const favManager = new FavoritesManager();
+    const favoriteIds = favManager.getFavorites();
     if (favoriteIds.length === 0) {
       containerElement.innerHTML = `<p>💔 Aún no tienes favoritos.</p>`;
       return;
@@ -229,7 +229,7 @@ class CatalogManager {
   }
 }
 
-(async function () {
+(async function() {
   const miCatalogo = new CatalogManager();
   await miCatalogo.loadJSON('/xml/productos.json'); // ruta a tu JSON
 
