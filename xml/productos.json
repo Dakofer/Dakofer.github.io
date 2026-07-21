@@ -1,22 +1,51 @@
 [
    {
-    "id":"p001", 
-    "nombre": "Llaveros de jujutsu kaisen",
-    "precio": 120.00,
-    "descripcion": "☆Llavero de acrílico ☆Con efecto holográfico cristal roto ☆ Llavero con diseño original inspirado en Jujutsu Kaisen ☆ Tamaño: 7cm",
-    "imagen":"/img/llavero_jujutsu.jpg",
-    "type":"Llavero",
-    "model":["standard","xl"],
-    "url":"https://www.facebook.com/marketplace/item/740579655784763?ref=marketplace_profile&referral_code=undefined"
+      "id": "p001",
+      "nombre": "Llaveros de jujutsu kaisen",
+      "precio": 120.00,
+      "descripcion": "☆Llavero de acrílico ☆Con efecto holográfico cristal roto ☆ Llavero con diseño original inspirado en Jujutsu Kaisen ☆ Tamaño: 7cm",
+      "imagen": "/img/llavero_jujutsu.jpg",
+      "type": "Llavero",
+      "model": [
+         "standard",
+         "xl"
+      ],
+      "url": "https://www.facebook.com/marketplace/item/740579655784763?ref=marketplace_profile&referral_code=undefined"
    },
    {
-    "id":"p002",
-    "nombre": "Llaveros de bakugo",
-    "precio": 120.00,
-    "descripcion": "☆Llavero de acrílico ☆Con efecto holográfico cristal roto ☆ Llavero con diseño original inspirado en Bakugo Katsuki ☆ Tamaño: 7cm",
-    "imagen":"/img/llavero_bakugo.jpg",
-    "type":"Llavero",
-    "model":["standard"],
-    "url":"https://www.facebook.com/marketplace/item/1034549752379644/?ref=marketplace_profile&referral_code=undefined"
+      "id": "p002",
+      "nombre": "Llaveros de bakugo",
+      "precio": 120.00,
+      "descripcion": "☆Llavero de acrílico ☆Con efecto holográfico cristal roto ☆ Llavero con diseño original inspirado en Bakugo Katsuki ☆ Tamaño: 7cm",
+      "imagen": "/img/llavero_bakugo.jpg",
+      "type": "Llavero",
+      "model": [
+         "standard"
+      ],
+      "url": "https://www.facebook.com/marketplace/item/1034549752379644/?ref=marketplace_profile&referral_code=undefined"
+   },
+   {
+      "id": "p003",
+      "nombre": "Camiseta de HxH",
+      "precio": 250.00,
+      "descripcion": "Camisa de Hunter x Hunter (H×H) ☆ Talla L,XL (Disponible actualmente) ☆ Diseño Original ¡Si te interesa en otra talla manda mensaje! ✨️",
+      "imagen": "/img/camiseta_HxH.jpg",
+      "type": "camiseta",
+      "model": [
+         "standard"
+      ],
+      "url": "https://www.facebook.com/marketplace/item/1916742115656031/?ref=marketplace_profile&referral_code=undefined"
+   },
+   {
+      "id": "p004",
+      "nombre": "Camiseta de DnD",
+      "precio": 250.00,
+      "descripcion": "Camiseta inspirada en Dungeons & Dragons (D&D) ☆ Talla XL (Disponible actualmente) ☆ Diseño Original ¡Si te interesa en otra talla manda mensaje! ✨️ ",
+      "imagen": "/img/camiseta_dnd.jpg",
+      "type": "camiseta",
+      "model": [
+         "standard"
+      ],
+      "url": "https://www.facebook.com/marketplace/item/2788216774886429/?ref=marketplace_profile&referral_code=undefined"
    }
 ]
